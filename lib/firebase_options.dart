@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyC03u7huORTGSdWxonjXiD6ShDSStd8xWM',
+    appId: '1:1026933030841:web:efc065796cd876d35c8068',
+    messagingSenderId: '1026933030841',
+    projectId: 'budget-app-9f737',
+    authDomain: 'budget-app-9f737.firebaseapp.com',
+    storageBucket: 'budget-app-9f737.appspot.com',
+    measurementId: 'G-1PVYV0BLL5',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC1oB3PScDO5rQsydfEQdykTvC0GMtQgCM',
     appId: '1:1026933030841:android:87eabd203e44397b5c8068',
@@ -64,5 +68,14 @@ class DefaultFirebaseOptions {
     projectId: 'budget-app-9f737',
     storageBucket: 'budget-app-9f737.appspot.com',
     iosBundleId: 'budget.app.devsino.com.budgetApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDWdyi7mM-EhO8ejZ4Agk9u0Bp5fpWA32c',
+    appId: '1:1026933030841:ios:91594d5468e0a6c95c8068',
+    messagingSenderId: '1026933030841',
+    projectId: 'budget-app-9f737',
+    storageBucket: 'budget-app-9f737.appspot.com',
+    iosBundleId: 'budget.app.devsino.com.budgetApp.RunnerTests',
   );
 }
